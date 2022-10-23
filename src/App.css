@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap');
+
 .App {
   text-align: center;
 }
@@ -14,7 +16,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,6 +28,17 @@
 
 .App-link {
   color: #61dafb;
+}
+
+input:focus {
+  outline: none;
+}
+input {
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-family: 'Figtree', sans-serif;
+
 }
 
 @keyframes App-logo-spin {
