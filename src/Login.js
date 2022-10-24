@@ -1,10 +1,10 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import React from "react";
 import { useRef, useState } from "react";
 import logo from './logo.svg';
 import './App.css';
 import {User, Lock, ArrowRight} from "react-feather";
-import {signup} from "./Firebase";
+import {signup, login} from "./Firebase";
 
 
 
@@ -14,14 +14,25 @@ import {signup} from "./Firebase";
  function App() {
 
     const [loading, setLoading] = useState(false);
-
+    const navigate = useNavigate();
     const emailRef = useRef();
     const passwordRef = useRef();
 
     async function handleSignup(){
         setLoading(true);
         try {
-            await signup(emailRef.current.value, passwordRef.current.value);
+            await login(emailRef.current.value, passwordRef.current.value);
+            navigate("/");
+        } catch {
+            alert("something went wrong");
+        }
+        setLoading(false);
+    }
+
+    async function handleLogin(){
+        setLoading(true);
+        try {
+            await login(emailRef.current.value, passwordRef.current.value);
 
         } catch {
             alert("something went wrong");
@@ -64,7 +75,7 @@ import {signup} from "./Firebase";
 
                 <p style={{color: "#2f80ed", textAlign:"center", fontWeight:"bold"}}>Forgot your password?</p>
                 
-                <button disabled = {loading} onClick={handleSignup}  id="Login" style={{backgroundColor:"black", width:"300px", height:"50px", margin:"0 auto", borderRadius:"30px", display:"flex", cursor:"pointer", justifyContent:"center", alignItems:"center"}}>
+                <button disabled = {loading} onClick={handleLogin}  id="Login" style={{backgroundColor:"black", width:"300px", height:"50px", margin:"0 auto", borderRadius:"30px", display:"flex", cursor:"pointer", justifyContent:"center", alignItems:"center"}}>
                     <p style={{color:"white", padding:"5px", fontWeight:"bold", fontSize:"18px", textAlign:"center"}}>Log In</p>
                 </button>
             </div>
