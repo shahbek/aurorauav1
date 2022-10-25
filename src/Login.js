@@ -42,7 +42,7 @@ import {signup, login} from "./Firebase";
 
   return (
     
-    <div style={{height: "100vh", backgroundSize: "cover", display: "flex", flexDirection: "column", backgroundImage: "url('https://img.freepik.com/free-vector/winter-blue-pink-gradient-background-vector_53876-117276.jpg?w=826&t=st=1666545525~exp=1666546125~hmac=0004e28609ee244358f0b52a79285e5c800e06a4375a286465d617b4e6ac0c01')"}}>
+    <div style={{height: "100vh", backgroundSize: "cover", display: "flex", flexDirection: "column", background: "linear-gradient(to bottom, #cb51e3, #bb77f5, #ffff , #ffff, #ffff, #ffff, #ffff)"}}>
         
         
         
@@ -53,7 +53,7 @@ import {signup, login} from "./Firebase";
             </div>
 
             <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-                <h3 style={{fontWeight: "normal"}}>Don't have an account? <b><Link to={"/Signup"}>Sign up</Link></b></h3><ArrowRight/>
+                <h3 style={{fontWeight: "normal"}}>Don't have an account? <b><Link style={{textDecoration: "none"}} to={"/Signup"}>Sign up</Link></b></h3><ArrowRight/>
             </div>
             
             

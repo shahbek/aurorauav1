@@ -11,7 +11,6 @@ import { PieChart } from 'react-minimal-pie-chart';
 
 
 
-
 function spinnerToggle(){
  document.getElementById("process").style.display ="none";
  $("#spinner").show();
@@ -53,9 +52,7 @@ function App() {
 
   return (
     <div className="App">
-      
-
-
+   
         
 
       <Layout>
@@ -186,7 +183,6 @@ function App() {
    
   
       
-    
     
     </div>
 
