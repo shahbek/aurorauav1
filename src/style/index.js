@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
 export const Layout = styled.div`
-    height: 100vh;
+    height: 100%;
     width: 100%;
 
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: space-between;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80");
+    background-image: url("https://wallpapercave.com/wp/wp3156104.jpg");
 `
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 400px;
     padding: 36px 48px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.5) 0px 30px 60px -30px;
     border-radius: 20px;

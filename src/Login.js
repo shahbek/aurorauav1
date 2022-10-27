@@ -18,27 +18,19 @@ import {signup, login} from "./Firebase";
     const emailRef = useRef();
     const passwordRef = useRef();
 
-    async function handleSignup(){
+    
+    async function handleLogin(){
         setLoading(true);
         try {
             await login(emailRef.current.value, passwordRef.current.value);
             navigate("/");
         } catch {
-            alert("something went wrong");
+            document.getElementById("errorcredentials").style.display = "block";
         }
         setLoading(false);
     }
 
-    async function handleLogin(){
-        setLoading(true);
-        try {
-            await login(emailRef.current.value, passwordRef.current.value);
-
-        } catch {
-            alert("something went wrong");
-        }
-        setLoading(false);
-    }
+   
 
   return (
     
@@ -62,7 +54,7 @@ import {signup, login} from "./Firebase";
         <div style={{height: "100vh", width: "100%", display: "flex", alignItems:"center", justifyContent:"center"}}>
             <div >
                 <h3 style={{fontWeight: "normal", textAlign: "center"}}>Log in to your account</h3>
-                
+                <p id={"errorcredentials"} style ={{color: "red", display: "none"}} >invalid credentials</p>
                 <div style={{backgroundColor: "#edf2f7", border: "none", height: "50px", width: "300px", borderRadius: "10px", display: "flex", alignItems:"center"}}>
                 <User style={{paddingLeft: "10px", color: "#505050", width: "20px"}}/>
                 <input ref = {emailRef} type="email" class="no-outline" placeholder="Email" style={{paddingLeft: "10px"}}   />

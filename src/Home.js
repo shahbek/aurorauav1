@@ -8,6 +8,7 @@ import {SpinnerDotted} from "spinners-react";
 import $ from "jquery";
 import Results from "./Results.json";
 import { PieChart } from 'react-minimal-pie-chart';
+import Navbar from "./Components/Navbar";
 
 
 
@@ -53,9 +54,14 @@ function App() {
   return (
     <div className="App">
    
-        
+      
 
       <Layout>
+      <Navbar /> 
+      <div style = {{ width: "100%"}}>
+      <h2>Process Image</h2>
+      
+      <div style = {{display: "flex", justifyContent: "space-evenly"}}>
       <Container style={{backdropFilter: "blur(7px)", borderLeft: "solid 0.5px rgba(255, 255, 255, 0.3)",  borderTop: "solid 0.5px rgba(255, 255, 255, 0.3)"}}>
         <h2>Upload image of Tree or Forest Area</h2>
 
@@ -136,10 +142,7 @@ function App() {
       
 
       </Container>
-    </Layout>
-    
-    <Layout id="Analytics" style={{display: "none"}}>
-      <Container id="Analytics" style={{backdropFilter: "blur(7px)", borderLeft: "solid 0.5px rgba(255, 255, 255, 0.3)",  borderTop: "solid 0.5px rgba(255, 255, 255, 0.3)"}}>
+      <Container id="Analytics" style={{backdropFilter: "blur(7px)", borderLeft: "solid 0.5px rgba(255, 255, 255, 0.3)",  borderTop: "solid 0.5px rgba(255, 255, 255, 0.3)", display :"none"}}>
         <h1>Analytics</h1>
         {
           Results[0].detections && Results[0].detections.map( (result) => {
@@ -179,7 +182,12 @@ function App() {
 />
         </Container>
       </Container>
+      </div>
+
+
+      </div> 
     </Layout>
+    
    
   
       

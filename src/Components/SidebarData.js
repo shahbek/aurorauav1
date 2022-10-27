@@ -3,13 +3,13 @@ import {Code, Home, User} from 'feather-icons';
 
 export const SidebarData = [
     {
-        title: 'Home',
+        title: 'Process',
         path: '/',
         icon: 'Code',
         cName: 'nav-text'
     },
     {
-        title: 'Code',
+        title: 'Saved',
         path: '/Login',
         
         cName: 'nav-text'
