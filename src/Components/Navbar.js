@@ -1,6 +1,6 @@
 import React from 'react';
 import { Activity, Code, Cpu, Pocket, LogOut, UploadCloud, Save } from 'react-feather';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useNavigate, NavLink} from 'react-router-dom';
 import {useState} from "react";
 import {SidebarData} from './SidebarData';
 import "./Navbar.css";
@@ -12,6 +12,17 @@ function Navbar() {
     const navigate = useNavigate();
     const [sidebar, setSidebar] = useState(false);
     const [loading, setLoading] = useState(false);
+
+    var header = document.getElementsByClassName('nav-menu-items');
+    var links = document.getElementsByClassName('nav-text');
+
+    for (var i = 0; i < links.length; i++){
+        links[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
 
     async function handleLogout(){
         setLoading(true);
@@ -38,7 +49,7 @@ function Navbar() {
             </div>
             <li className='nav-menu-items' >
 
-            <li key={5} className ='nav-text'>
+            <li key={5} className ='nav-text active'>
                             <Link to='/'>
                                 <UploadCloud />
                                 <p style={{marginLeft:"5px"}}>Process Image</p>

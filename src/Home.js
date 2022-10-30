@@ -57,7 +57,7 @@ function App() {
       
 
       <Layout>
-      <Navbar /> 
+    <Navbar /> 
       <div style = {{ width: "100%"}}>
       <h2>Process Image</h2>
       
