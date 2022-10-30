@@ -16,7 +16,7 @@ function Navbar() {
     async function handleLogout(){
         setLoading(true);
         try {
-
+            console.log(currentUser.displayName);
             await logout();
             navigate("/Login")
 
@@ -27,13 +27,14 @@ function Navbar() {
     }
     
   return (
+      
     <>
-
+     
         <nav className={'nav-menu'}>
 
             <div>
             <h1>Aurora AI</h1>
-            <h4 style={{color: "purple"}}>{currentUser?.email}</h4>
+            <h4 style={{color: "purple"}}>{currentUser?.displayName}</h4>
             </div>
             <li className='nav-menu-items' >
 

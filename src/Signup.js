@@ -4,10 +4,9 @@ import {Link, useNavigate} from "react-router-dom";
 import { useRef, useState } from "react";
 import logo from './logo.svg';
 import './App.css';
-import {User, Lock, ArrowRight} from "react-feather";
-import {signup} from "./Firebase";
-
-
+import {User, Lock, ArrowRight, Terminal} from "react-feather";
+import {signup, useAuth} from "./Firebase";
+import {getAuth, updateProfile} from "firebase/auth";
 
 
 
@@ -18,17 +17,21 @@ import {signup} from "./Firebase";
     const navigate = useNavigate();
     const emailRef = useRef();
     const passwordRef = useRef();
+    const userNameRef = useRef();
+    const auth = getAuth();
 
-
+    
     
 
     async function handleSignup(){
         setLoading(true);
         try {
+            
             await signup(emailRef.current.value, passwordRef.current.value);
+           
             navigate("/");
         } catch {
-            alert("something went wrong");
+            alert("error!");
         }
         setLoading(false);
     }
@@ -62,8 +65,8 @@ import {signup} from "./Firebase";
                 </div>
 
                 <div style={{backgroundColor: "#edf2f7", border: "none", height: "50px", width: "300px", borderRadius: "10px", display: "flex", alignItems:"center", marginTop: "10px"}}>
-                <Lock style={{paddingLeft: "10px", color: "#505050", width: "20px"}}/>
-                <input type="password" class="no-outline" placeholder="Password" style={{paddingLeft: "10px"}}   />
+                <Terminal style={{paddingLeft: "10px", color: "#505050", width: "20px"}}/>
+                <input ref = {userNameRef} type="text" class="no-outline" placeholder="Username" style={{paddingLeft: "10px"}}   />
                 </div>
 
                 <div style={{backgroundColor: "#edf2f7", border: "none", height: "50px", width: "300px", borderRadius: "10px", display: "flex", alignItems:"center", marginTop: "10px"}}>
