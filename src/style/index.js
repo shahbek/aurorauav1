@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Layout = styled.div`
-    height: 100%;
     width: 100%;
 
     display: flex;
@@ -14,7 +13,7 @@ export const Layout = styled.div`
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 350px;
     padding: 36px 48px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.5) 0px 30px 60px -30px;
     border-radius: 20px;

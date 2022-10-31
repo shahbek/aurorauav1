@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Layout, Container, BoxUpload, ImagePreview } from "./style";
 import FolderIcon from "./assets/folder_icon_transparent.png";
 import CloseIcon from "./assets/CloseIcon.svg";
-import {HelpCircle} from "react-feather";
+import {HelpCircle, Save} from "react-feather";
 import {SpinnerDotted} from "spinners-react";
 import $ from "jquery";
 import Results from "./Results.json";
@@ -63,7 +63,7 @@ function App() {
       
       <div style = {{display: "flex", justifyContent: "space-evenly"}}>
       <Container style={{backdropFilter: "blur(7px)", borderLeft: "solid 0.5px rgba(255, 255, 255, 0.3)",  borderTop: "solid 0.5px rgba(255, 255, 255, 0.3)"}}>
-        <h2>Upload image of Tree or Forest Area</h2>
+        <h3>Upload image of Tree or Forest Area</h3>
 
         <BoxUpload style={{backdropFilter: "blur(1px)"}}>
           <div className="image-upload">
@@ -142,13 +142,14 @@ function App() {
       
 
       </Container>
-      <Container id="Analytics" style={{backdropFilter: "blur(7px)", borderLeft: "solid 0.5px rgba(255, 255, 255, 0.3)",  borderTop: "solid 0.5px rgba(255, 255, 255, 0.3)", display :"none"}}>
-        <h1>Analytics</h1>
+      <Container id="Analytics" style={{backdropFilter: "blur(7px)", borderLeft: "solid 0.5px rgba(255, 255, 255, 0.3)",  borderTop: "solid 0.5px rgba(255, 255, 255, 0.3)", display :"none", textAlign: "left"}}>
+        <div><Save /></div>
+        <h3>Analytics</h3>
         {
           Results[0].detections && Results[0].detections.map( (result) => {
             return <div key={result.id}>
-              <h3 key={result.id}>Species: {result.label}</h3>
-              <h4>    Confidence: {((result.score)*100).toFixed(2)}%</h4>
+              <p key={result.id}>Species: {result.label}</p>
+              <p>    Confidence: {((result.score)*100).toFixed(2)}%</p>
                 
               </div>
 
@@ -162,7 +163,7 @@ function App() {
           return <h4>Total trees: {result}</h4>
         }
         )}
-<Container style={{width: "90%", alignSelf: "center", background: "rgba(255,255,255,0.7)"}}>
+<Container style={{width: "90%", alignSelf: "center", background: "rgba(255,255,255,1)"}}>
 <PieChart
   style={{width: "200px"}}
   lineWidth={15}
@@ -186,7 +187,7 @@ function App() {
 
 
       </div> 
-    </Layout>
+      </Layout>
     
    
   

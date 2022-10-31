@@ -75,7 +75,7 @@ function Navbar() {
 
             <div>
             <h1>Aurora AI</h1>
-            <h4 style={{color: "black"}}>{displayUser()}</h4>
+            <h4 style={{color: "black", fontWeight:"bold"}}>{displayUser()}</h4>
             </div>
             <li className='nav-menu-items' >
 

@@ -18,10 +18,20 @@ import {setDoc, doc, serverTimestamp} from "firebase/firestore";
     const navigate = useNavigate();
     const emailRef = useRef();
     const passwordRef = useRef();
+    const confirmPasswordRef = useRef();
     const userNameRef = useRef();
     const auth = getAuth();
 
     
+    function confirmPassword(){
+        if(confirmPasswordRef.current.value !== passwordRef.current.value)
+        {
+            document.getElementById("errorcredentials").style.display = "block";
+        }
+        else{
+            handleSignup();
+        }
+    }
     
 
     async function handleSignup(){
@@ -69,7 +79,7 @@ import {setDoc, doc, serverTimestamp} from "firebase/firestore";
         <div style={{height: "100vh", width: "100%", display: "flex", alignItems:"center", justifyContent:"center"}}>
             <div >
                 <h3 style={{fontWeight: "normal", textAlign: "center"}}>Create an account</h3>
-                
+                <p id={"errorcredentials"} style ={{color: "red", display: "none"}} >passwords do not match</p>
                 <div style={{backgroundColor: "#edf2f7", border: "none", height: "50px", width: "300px", borderRadius: "10px", display: "flex", alignItems:"center"}}>
                 <User style={{paddingLeft: "10px", color: "#505050", width: "20px"}}/>
                 <input ref = {emailRef} type="email" class="no-outline" placeholder="Email" style={{paddingLeft: "10px"}}   />
@@ -85,9 +95,14 @@ import {setDoc, doc, serverTimestamp} from "firebase/firestore";
                 <input ref ={passwordRef} type="password" class="no-outline" placeholder="Password" style={{paddingLeft: "10px"}}   />
                 </div>
 
+                <div style={{backgroundColor: "#edf2f7", border: "none", height: "50px", width: "300px", borderRadius: "10px", display: "flex", alignItems:"center", marginTop: "10px"}}>
+                <Lock style={{paddingLeft: "10px", color: "#505050", width: "20px"}}/>
+                <input ref ={confirmPasswordRef} type="password" class="no-outline" placeholder="Confirm password" style={{paddingLeft: "10px"}}   />
+                </div>
+
                 <p style={{color: "#2f80ed", textAlign:"center", fontWeight:"bold"}}></p>
                 
-                <button disabled = {loading} onClick={handleSignup}  id="Login" style={{backgroundColor:"black", width:"300px", height:"50px", margin:"0 auto", borderRadius:"30px", display:"flex", cursor:"pointer", justifyContent:"center", alignItems:"center"}}>
+                <button disabled = {loading} onClick={confirmPassword}  id="Login" style={{backgroundColor:"black", width:"300px", height:"50px", margin:"0 auto", borderRadius:"30px", display:"flex", cursor:"pointer", justifyContent:"center", alignItems:"center"}}>
                     <p style={{color:"white", padding:"5px", fontWeight:"bold", fontSize:"18px", textAlign:"center"}}>Sign Up</p>
                 </button>
             </div>
