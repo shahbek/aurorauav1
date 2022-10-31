@@ -1,16 +1,4 @@
-.navbar {
-    background-color: red;
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  }
-  
-  .menu-bars {
-    margin-left: 2rem;
-    font-size: 2rem;
-    background: none;
-  }
+
   
   .nav-menu {
     background-color: white;

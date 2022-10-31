@@ -3,6 +3,9 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { useRef, useState, useEffect } from "react";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged} from "firebase/auth";
+import 'firebase/firestore';
+import {getFirestore} from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,6 +25,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
+export const db = getFirestore(app);
+
 export function signup(email, password) {
    return createUserWithEmailAndPassword(auth, email, password);
 }
@@ -44,3 +49,5 @@ export function useAuth() {
 
   return currentUser;
 }
+
+

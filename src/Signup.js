@@ -5,8 +5,9 @@ import { useRef, useState } from "react";
 import logo from './logo.svg';
 import './App.css';
 import {User, Lock, ArrowRight, Terminal} from "react-feather";
-import {signup, useAuth} from "./Firebase";
+import {signup, db} from "./Firebase";
 import {getAuth, updateProfile} from "firebase/auth";
+import {setDoc, doc, serverTimestamp} from "firebase/firestore";
 
 
 
@@ -27,8 +28,18 @@ import {getAuth, updateProfile} from "firebase/auth";
         setLoading(true);
         try {
             
-            await signup(emailRef.current.value, passwordRef.current.value);
-           
+            const  userCredential  = await signup(emailRef.current.value, passwordRef.current.value);
+            
+            const user = userCredential.user;
+             
+            const userData = {
+                username: userNameRef.current.value,
+                email: emailRef.current.value,
+                timestamp: serverTimestamp()
+            }
+            console.log(userData.username);
+            await setDoc(doc(db, 'users', user.uid), userData);
+
             navigate("/");
         } catch {
             alert("error!");

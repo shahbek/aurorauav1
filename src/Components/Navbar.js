@@ -1,10 +1,11 @@
 import React from 'react';
 import { Activity, Code, Cpu, Pocket, LogOut, UploadCloud, Save } from 'react-feather';
 import {Link, useNavigate, NavLink} from 'react-router-dom';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {SidebarData} from './SidebarData';
 import "./Navbar.css";
-import {logout, useAuth} from "../Firebase";
+import {logout, useAuth, db} from "../Firebase";
+import {collection, query, where, doc, getDocs} from "firebase/firestore";
 
 function Navbar() {
 
@@ -13,6 +14,35 @@ function Navbar() {
     const [sidebar, setSidebar] = useState(false);
     const [loading, setLoading] = useState(false);
 
+    const [users, setUsers] = useState([]);
+ 
+    const fetchUsers = async () => {
+       
+        await getDocs(collection(db, "users"))
+            .then((querySnapshot)=>{               
+                const newData = querySnapshot.docs
+                    .map((doc) => ({...doc.data(), id:doc.id }));
+                setUsers(newData);                
+                console.log(newData[0]);
+            })
+       
+    }
+
+   
+    useEffect(()=>{
+        fetchUsers();
+    }, [])
+
+
+    function displayUser(){
+        for(var i = 0; i < users.length; i++){
+            if(users[i].id == currentUser.uid){
+                return users[i].username;
+            }
+        }
+    }
+
+   
     var header = document.getElementsByClassName('nav-menu-items');
     var links = document.getElementsByClassName('nav-text');
 
@@ -45,18 +75,18 @@ function Navbar() {
 
             <div>
             <h1>Aurora AI</h1>
-            <h4 style={{color: "purple"}}>{currentUser?.displayName}</h4>
+            <h4 style={{color: "black"}}>{displayUser()}</h4>
             </div>
             <li className='nav-menu-items' >
 
-            <li key={5} className ='nav-text active'>
+            <li key={1} className ='nav-text active'>
                             <Link to='/'>
                                 <UploadCloud />
                                 <p style={{marginLeft:"5px"}}>Process Image</p>
                             </Link>
             </li>
 
-            <li key={5} className ='nav-text'>
+            <li key={2} className ='nav-text'>
                             <Link to='/'>
                                 <Save />
                                 <p style={{marginLeft:"5px"}}>Saved</p>
