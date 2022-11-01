@@ -2,18 +2,16 @@ import styled from 'styled-components';
 
 export const Layout = styled.div`
     width: 100%;
-
     display: flex;
-    justify-content: space-between;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("https://wallpapercave.com/wp/wp3156104.jpg");
+    background: #f3f3f3;
+    );
 `
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: 350px;
+    height: auto;
     padding: 36px 48px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.5) 0px 30px 60px -30px;
     border-radius: 20px;
