@@ -23,7 +23,7 @@ function Navbar() {
                 const newData = querySnapshot.docs
                     .map((doc) => ({...doc.data(), id:doc.id }));
                 setUsers(newData);                
-                console.log(newData[0]);
+                
             })
        
     }
@@ -36,7 +36,7 @@ function Navbar() {
 
     function displayUser(){
         for(var i = 0; i < users.length; i++){
-            if(users[i].id == currentUser.uid){
+            if(currentUser && users[i].id == currentUser.uid){
                 return users[i].username;
             }
         }
@@ -57,7 +57,7 @@ function Navbar() {
     async function handleLogout(){
         setLoading(true);
         try {
-            console.log(currentUser.displayName);
+            
             await logout();
             navigate("/Login")
 
@@ -74,8 +74,8 @@ function Navbar() {
         <nav className={'nav-menu'}>
 
             <div>
-            <h1>Aurora AI</h1>
-            <h4 style={{color: "black", fontWeight:"bold"}}>{displayUser()}</h4>
+            <h1 style={{textAlign: "center"}}>Aurora AI</h1>
+            <h4 style={{color: "black", fontWeight:"bold", textAlign:"center"}}>{displayUser()}</h4>
             </div>
             <li className='nav-menu-items' >
 
@@ -87,7 +87,7 @@ function Navbar() {
             </li>
 
             <li key={2} className ='nav-text'>
-                            <Link to='/'>
+                            <Link to='/Saved'>
                                 <Save />
                                 <p style={{marginLeft:"5px"}}>Saved</p>
                             </Link>

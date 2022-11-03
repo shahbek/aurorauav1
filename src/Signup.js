@@ -59,7 +59,7 @@ import {setDoc, doc, serverTimestamp} from "firebase/firestore";
 
   return (
     
-    <div style={{height: "100vh", backgroundSize: "cover", display: "flex", flexDirection: "column",  background: "linear-gradient(to bottom, #cb51e3, #bb77f5, #ffff , #ffff, #ffff, #ffff, #ffff)"}}>
+    <div style={{height: "100vh", width:"100%", backgroundSize: "cover", display: "flex", flexDirection: "column",  background: "linear-gradient(to bottom, #cb51e3, #bb77f5, #ffff , #ffff, #ffff, #ffff, #ffff)"}}>
         
         
         
