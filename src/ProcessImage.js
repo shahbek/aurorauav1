@@ -63,7 +63,7 @@ function App() {
       <h2 style={{textAlign:"left", color: "black"}}>Process Image</h2>
       <p style ={{textAlign: "left", color: "grey"}}>Drop your files in the box below for processing</p>
       
-      <div style={{width:"100%",height:"500px", display:"flex",flexDirection:"row"}}>
+      <div style={{width:"100%",height:"500px", display:"flex",flexDirection:"row", boxShadow: "rgba(50, 50, 93, 0.5) 0px 25px 25px -5px, rgba(0, 0, 0, 0.5) 0px 7.5px 15px -7.5px", borderRadius: "30px"}}>
                 <div style={{height:"100%",width:"50%", backgroundColor:"black",borderTopLeftRadius:"30px",borderBottomLeftRadius:"30px", display:"flex", justifyContent:"center", alignItems:"center"}} >
                         <div>
                         <h1 style={{color:"white", fontWeight:"lighter"}}>Tree Detection</h1>
@@ -81,7 +81,7 @@ function App() {
                             <label htmlFor="upload-input">
                             <img
                                 src={FolderIcon}
-                                draggable={"false"}
+                                draggable={"true"}
                                 alt="placeholder"
                                 style={{ width: 100, height: 100 }}
                             />
@@ -154,6 +154,8 @@ function App() {
                 </div>
       </div>
 
+                <h2 style={{textAlign:"left", color: "black"}}>Results</h2>
+                <p style ={{textAlign: "left", color: "grey"}}>Finish processing files to view results</p>
 
 
       <Container id="Analytics" style={{backdropFilter: "blur(7px)", borderLeft: "solid 0.5px rgba(255, 255, 255, 0.3)",  borderTop: "solid 0.5px rgba(255, 255, 255, 0.3)", display :"none", textAlign: "left"}}>

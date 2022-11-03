@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Layout, Container, BoxUpload, ImagePreview } from "./style";
 import Navbar from "./Components/Navbar";
 import ProcessImage from "./ProcessImage";
-
+import Saved from "./Saved";
 
 
 
@@ -17,8 +17,9 @@ function App() {
       
 
       <Layout>
-      <Navbar /> 
-        <ProcessImage />
+        <Navbar /> 
+          <ProcessImage />
+          
       </Layout>
     
    
