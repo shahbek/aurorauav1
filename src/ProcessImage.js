@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from "react";
-import { Layout, Container, BoxUpload, ImagePreview } from "./style";
+import {Container, BoxUpload, ImagePreview } from "./style";
 import FolderIcon from "./assets/folder_icon_transparent.png";
 import CloseIcon from "./assets/CloseIcon.svg";
 import {HelpCircle, Save} from "react-feather";
@@ -8,9 +8,45 @@ import {SpinnerDotted} from "spinners-react";
 import $ from "jquery";
 import Results from "./Results.json";
 import { PieChart } from 'react-minimal-pie-chart';
-import Navbar from "./Components/Navbar";
 
 
+function detectFromImage(){
+  var pine = 0;
+  var fir = 0;
+  var spruce = 0;
+  
+  var Object = Results[0].detections;
+  var newObject = [{ "detections": [], "total": []}];
+
+  for(let i = 0; i < Object.length; i++){
+    
+    if(Object[i].label == "pine"){
+      pine += 1;
+     
+    }
+    if(Object[i].label == "fir"){
+      fir += 1;
+     
+    }
+    if(Object[i].label == "spruce"){
+      spruce += 1;
+     
+    }
+    
+    
+  }
+
+ var total = pine + spruce + fir;
+
+  newObject[0].detections[0] = {"id": 1, "label": "fir", "total": fir};
+  newObject[0].detections[1] = {"id": 2, "label": "spruce", "total": spruce};
+  newObject[0].detections[2] = {"id": 3, "label": "pine", "total": pine};
+  newObject[0].total[0] = {total};
+
+  return JSON.stringify(newObject);
+}
+
+console.log("OBJECT: " + detectFromImage());
 
 function spinnerToggle(){
  document.getElementById("process").style.display ="none";
@@ -42,15 +78,7 @@ function App() {
     }
   }
 
-  function printResults(result){
-      
-      for(let i = 0; i <= result.detections.length; i++){
-       return <h1>Species: {result.detections[i].label}</h1>;
-       
-      }
-    
-  }
-
+ 
   return (
     
 
@@ -156,6 +184,7 @@ function App() {
 
                 <h2 style={{textAlign:"left", color: "black"}}>Results</h2>
                 <p style ={{textAlign: "left", color: "grey"}}>Finish processing files to view results</p>
+                
 
 
       <Container id="Analytics" style={{backdropFilter: "blur(7px)", borderLeft: "solid 0.5px rgba(255, 255, 255, 0.3)",  borderTop: "solid 0.5px rgba(255, 255, 255, 0.3)", display :"none", textAlign: "left"}}>
