@@ -41,12 +41,17 @@ function detectFromImage(){
   newObject[0].detections[0] = {"id": 1, "label": "fir", "total": fir};
   newObject[0].detections[1] = {"id": 2, "label": "spruce", "total": spruce};
   newObject[0].detections[2] = {"id": 3, "label": "pine", "total": pine};
-  newObject[0].total[0] = {total};
+  newObject[0].total[0] = {"total": total};
 
-  return JSON.stringify(newObject);
+  return newObject;
 }
 
-console.log("OBJECT: " + detectFromImage());
+
+const newResults = detectFromImage();
+
+console.log("NEW RESULTS: " + Results[0].detections[0].label);
+
+console.log("NEW : " + newResults[0].total[0].total);
 
 function spinnerToggle(){
  document.getElementById("process").style.display ="none";
@@ -84,7 +89,7 @@ function App() {
 
     
 
-<div style = {{ width: "100%"}}>
+<div style = {{ width: "100%", marginBottom: "20px"}}>
       
       <div style ={{width: "95%", margin: "auto"}}>
 
@@ -96,6 +101,7 @@ function App() {
                         <div>
                         <h1 style={{color:"white", fontWeight:"lighter"}}>Tree Detection</h1>
                         <p style ={{color: "white", fontWeight:"lighter"}}>extract forestry data from raw imagery at 75% precision</p>
+                       
                         </div>
                 </div>
                 <div style = {{width: "50%", height: "100%", background: "linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2)", display:"flex",alignItems:"center", borderTopRightRadius:"30px",borderBottomRightRadius:"30px"}}>
@@ -186,48 +192,38 @@ function App() {
                 <p style ={{textAlign: "left", color: "grey"}}>Finish processing files to view results</p>
                 
 
+        
 
-      <Container id="Analytics" style={{backdropFilter: "blur(7px)", borderLeft: "solid 0.5px rgba(255, 255, 255, 0.3)",  borderTop: "solid 0.5px rgba(255, 255, 255, 0.3)", display :"none", textAlign: "left"}}>
-        <div><Save /></div>
-        <h3>Analytics</h3>
+
+      <div id="Analytics" style={{display :"none", textAlign: "left", display: "flex"}}>
+      
+        
         {
-          Results[0].detections && Results[0].detections.map( (result) => {
-            return <div key={result.id}>
-              <p key={result.id}>Species: {result.label}</p>
-              <p>    Confidence: {((result.score)*100).toFixed(2)}%</p>
+          newResults[0].detections && newResults[0].detections.map( (result) => {
+            return <div key={result.id} style ={{width:"250px", backgroundColor: "white", border : "2.5px solid lightgrey", borderRadius: "10px", display:"flex", justifyContent:"center", alignItems:"center", marginRight: "30px"}}>
                 
-              </div>
+                <div style={{width:"98%", height:"98%",display:"flex", flexDirection:"column", alignSelf:"center"}}>
+                <div style={{width: "100%", height:"50px",backgroundColor: "#d0c5ef", borderTopRightRadius: "7px",borderTopLeftRadius: "7px", display:"flex", alignItems:"center", justifyContent:"center"}}><h4>Detection_{result.id}</h4></div>
+                  
+                  <div style={{width:"90%", alignSelf:"center"}}>
+                    <div style={{display:"flex", justifyContent:"space-between"}}><p><b>id</b></p><p style={{color:"grey"}}>{result.id}</p></div>
+                    <div style={{display:"flex", justifyContent:"space-between"}}><p><b>species</b></p><p style={{color:"grey"}}>{result.label}</p></div>
+                    <div style={{display:"flex", justifyContent:"space-between"}}><p><b>total_trees</b></p><p style={{color:"grey"}}>{result.total}</p></div>
+                    <div style={{display:"flex", justifyContent:"space-between"}}><p><b>confidence_level</b></p><p style={{color:"grey"}}>78%</p></div>
+                    <div style={{display:"flex", justifyContent:"space-between"}}><p><b>value</b></p><p style={{color:"grey"}}>$1500</p></div>
+                  </div>
 
+                </div>
+                </div>
+             
               
             
           })
         }
-        {
-        Results[0].numDetections && Results[0].numDetections.map( (result) => {
+        {/* <div>Total trees: {newResults[0].total[0].total}</div> */}
         
-          return <h4>Total trees: {result}</h4>
-        }
-        )}
-        <Container style={{width: "90%", alignSelf: "center", background: "rgba(255,255,255,1)"}}>
-        <PieChart
-        style={{width: "200px"}}
-        lineWidth={15}
-        paddingAngle = {15}
-        rounded = {true}
-        radius = {40}
         
-        viewBoxSize = {[100,100]}
-        center = {[50,50]}
-        
-        data={[
-            { title: 'Pine', value: 10, color: '#14ccc0' },
-            { title: 'Fir', value: 15, color: '#bcdc84' },
-            { title: 'Spruce', value: 20, color: '#74bc24' },
-            { title: 'Three', value: 20, color: '#04bcb4' },
-        ]}
-        />
-        </Container>
-      </Container>
+      </div>
 
       </div>
       </div> 
