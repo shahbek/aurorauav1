@@ -6,6 +6,7 @@ import ProcessImage from "./ProcessImage";
 import Saved from "./Saved";
 import Navbar from './Components/Navbar';
 import {Layout} from "./style/index";
+import Dashboard from "./Dashboard";
 
 function App() {
     const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/" element={<ProcessImage />} />
             <Route path="/Saved" element={<Saved />} />
+            <Route path = "/Dashboard" element ={<Dashboard />} />
         </Routes>
         </Layout>
         

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Activity, Code, Cpu, Pocket, LogOut, UploadCloud, Save } from 'react-feather';
+import {LogOut, UploadCloud, Save, Box } from 'react-feather';
 import {Link, useNavigate, NavLink} from 'react-router-dom';
 import {useState, useEffect} from "react";
 import {SidebarData} from './SidebarData';
@@ -79,14 +79,20 @@ function Navbar() {
             </div>
             <li className='nav-menu-items' >
 
-            <li key={1} className ='nav-text active'>
+            <li key={1} className ='nav-text'>
+                            <Link to='/Dashboard'>
+                                <Box />
+                                <p style={{marginLeft:"5px"}}>Dashboard</p>
+                            </Link>
+            </li>
+            <li key={2} className ='nav-text active'>
                             <Link to='/'>
                                 <UploadCloud />
                                 <p style={{marginLeft:"5px"}}>Process Image</p>
                             </Link>
             </li>
 
-            <li key={2} className ='nav-text'>
+            <li key={3} className ='nav-text'>
                             <Link to='/Saved'>
                                 <Save />
                                 <p style={{marginLeft:"5px"}}>Saved</p>
