@@ -8,7 +8,7 @@ import {User, Lock, ArrowRight, Terminal} from "react-feather";
 import {signup, db} from "./Firebase";
 import {getAuth, updateProfile} from "firebase/auth";
 import {setDoc, doc, serverTimestamp} from "firebase/firestore";
-
+import Spline from '@splinetool/react-spline';
 
 
 
@@ -75,6 +75,8 @@ import {setDoc, doc, serverTimestamp} from "firebase/firestore";
             
             
         </div>
+
+        {/* <Spline scene="https://prod.spline.design/XkV7H1cA6y-TIDk3/scene.splinecode" /> */}
         
         <div style={{height: "100vh", width: "100%", display: "flex", alignItems:"center", justifyContent:"center"}}>
             <div >

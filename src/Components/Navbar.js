@@ -6,6 +6,7 @@ import {SidebarData} from './SidebarData';
 import "./Navbar.css";
 import {logout, useAuth, db} from "../Firebase";
 import {collection, query, where, doc, getDocs} from "firebase/firestore";
+import Logo from "../assets/Logo.png";
 
 function Navbar() {
 
@@ -74,7 +75,17 @@ function Navbar() {
         <nav className={'nav-menu'}>
 
             <div>
-            <h1 style={{textAlign: "center"}}>Aurora AI</h1>
+            <div style ={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+
+                <img
+                src={Logo}
+                alt="placeholder"
+                style={{ width: 90, height: 90}}
+                />
+
+            </div>
+
+           
             <h4 style={{color: "black", fontWeight:"bold", textAlign:"center"}}>{displayUser()}</h4>
             </div>
             <li className='nav-menu-items' >
