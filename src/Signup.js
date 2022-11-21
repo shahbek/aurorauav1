@@ -75,11 +75,15 @@ import Spline from '@splinetool/react-spline';
             
             
         </div>
-
-        {/* <Spline scene="https://prod.spline.design/XkV7H1cA6y-TIDk3/scene.splinecode" /> */}
+        
+       
+        
         
         <div style={{height: "100vh", width: "100%", display: "flex", alignItems:"center", justifyContent:"center"}}>
-            <div >
+            
+        <Spline scene="https://prod.spline.design/XkV7H1cA6y-TIDk3/scene.splinecode" />
+            
+            <div>
                 <h3 style={{fontWeight: "normal", textAlign: "center"}}>Create an account</h3>
                 <p id={"errorcredentials"} style ={{color: "red", display: "none"}} >passwords do not match</p>
                 <div style={{backgroundColor: "#edf2f7", border: "none", height: "50px", width: "300px", borderRadius: "10px", display: "flex", alignItems:"center"}}>
