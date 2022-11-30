@@ -80,13 +80,19 @@ function Navbar() {
                 <img
                 src={Logo}
                 alt="placeholder"
-                style={{ width: 90, height: 90}}
+                style={{ width: 70, height: 70, marginTop: 10}}
                 />
 
             </div>
 
-           
-            <h4 style={{color: "black", fontWeight:"bold", textAlign:"center"}}>{displayUser()}</h4>
+            <div style={{display:"flex", justifyContent:"center"}}>
+                <div style={{display:"flex",flexDirection:"row", justifyContent:"center", alignItems:"center",paddingLeft:"10px",paddingRight:"10px", height:"28px",  backgroundColor:"#d9fcd9", borderRadius: "30px"}}>
+                    <div style={{width:"13px", height:"13px", borderRadius:"13px", backgroundColor:"limegreen", marginRight:"3px"}} />
+                    <h4 style={{color: "black", fontWeight:"lighter", textAlign:"center"}}>{displayUser()}</h4>
+                </div>
+            
+            </div>
+
             </div>
             <li className='nav-menu-items' >
 

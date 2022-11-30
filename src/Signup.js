@@ -1,4 +1,3 @@
-
 import React from "react";
 import {Link, useNavigate} from "react-router-dom";
 import { useRef, useState } from "react";
@@ -12,7 +11,7 @@ import Spline from '@splinetool/react-spline';
 
 
 
- function App() {
+ function App() {
 
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -59,7 +58,7 @@ import Spline from '@splinetool/react-spline';
 
   return (
     
-    <div style={{height: "100vh", width:"100%", backgroundSize: "cover", display: "flex", flexDirection: "column",  background: "linear-gradient(to bottom, #cb51e3, #bb77f5, #ffff , #ffff, #ffff, #ffff, #ffff)"}}>
+    <div style={{height: "100vh", width:"100%", backgroundSize: "cover", display: "flex", flexDirection: "column",  background: "linear-gradient(to bottom, #9800a2, #c71c87, #fe3a62, #fe5552,#ff9f37,#ffce19,#cdf5c8 , #C8E7F5, #C8E7F5, #C8E7F5, #C8E7F5, #C8E7F5, #C8E7F5)"}}>
         
         
         
@@ -76,12 +75,14 @@ import Spline from '@splinetool/react-spline';
             
         </div>
         
-       
+       <div style={{alignSelf:"center"}}>
+
+        <Spline renderOnDemand = {true} style={{width:"100%"}} scene="https://prod.spline.design/2ZLF-K9zdWKaT9EU/scene.splinecode" />
+       </div>
         
-        
-        <div style={{height: "100vh", width: "100%", display: "flex", alignItems:"center", justifyContent:"center"}}>
+        <div style={{width: "100%", display: "flex", alignItems:"center", justifyContent:"center"}}>
             
-        <Spline scene="https://prod.spline.design/XkV7H1cA6y-TIDk3/scene.splinecode" />
+
             
             <div>
                 <h3 style={{fontWeight: "normal", textAlign: "center"}}>Create an account</h3>
