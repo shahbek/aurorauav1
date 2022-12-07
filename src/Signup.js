@@ -58,18 +58,18 @@ import Spline from '@splinetool/react-spline';
 
   return (
     
-    <div style={{height: "100vh", width:"100%", backgroundSize: "cover", display: "flex", flexDirection: "column",  background: "linear-gradient(to bottom, #9800a2, #c71c87, #fe3a62, #fe5552,#ff9f37,#ffce19,#cdf5c8 , #C8E7F5, #C8E7F5, #C8E7F5, #C8E7F5, #C8E7F5, #C8E7F5)"}}>
+    <div style={{width:"100%", backgroundSize: "cover", display: "flex", flexDirection: "column",  background: "linear-gradient(to bottom, #9800a2, #c71c87, #fe3a62, #fe5552,#ff9f37,#ffce19,#cdf5c8 , #C8E7F5, #C8E7F5, #C8E7F5, #C8E7F5, #C8E7F5, #C8E7F5)"}}>
         
         
         
          <div style = {{ width: "90%", alignSelf:"center", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
             
             <div>
-            <h1>Aurora AI</h1>
+            <h1 style = {{color:"white"}}>Aurora AI</h1>
             </div>
 
             <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-                <h3 style={{fontWeight: "normal"}}>Already have an account? <b><Link style={{textDecoration: "none"}} to={"/Login"}>Sign in</Link></b></h3><ArrowRight/>
+                <h3 style={{fontWeight: "normal", color:"white"}}>Already have an account? <b><Link style={{textDecoration: "none",color:"white"}} to={"/Login"}>Sign in</Link></b></h3><ArrowRight style={{color:"white"}}/>
             </div>
             
             
