@@ -36,6 +36,7 @@ function detectFromImage(){
     
   }
 
+ 
  var total = pine + spruce + fir;
 
   newObject[0].detections[0] = {"id": 1, "label": "fir", "total": fir};
